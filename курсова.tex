@@ -1,0 +1,951 @@
+\documentclass[a4paper, 20pt, fleqn, border=2pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.9}
+
+\title{Курсова по Висша математика 2}
+\author{Любослав Любенов}
+
+\begin{document}
+
+\maketitle
+\par
+ 
+\begin{enumerate}
+    \item Да се запишат първите шест члена на редиците и да се изобразят геометрично. Да се определят точките на сгъстяване
+\par
+\par
+
+Задача: 1.2:
+\begin{equation}
+\begin{split}
+    a_n = \frac{n}{n+1}
+\end{split}
+\end{equation}
+Решение:
+\begin{equation}
+\begin{split}
+    n = 1;\quad a_1 = \frac{1}{2} \\ 
+    n = 2;\quad a_2 = \frac{1}{3} \\ 
+    n = 3;\quad a_3 = \frac{1}{4} \\ 
+    n = 4;\quad a_4 = \frac{1}{5} \\ 
+    n = 5;\quad a_5 = \frac{1}{6} \\
+\end{split}
+\end{equation}
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = { $n$ },
+    ylabel = { $a_n$ },
+    xmin = 1,
+    xmax = 5,
+    ymin = 0,
+    ymax = 1
+] 
+
+\addplot[
+    color=black,
+    mark=square
+] coordinates {
+    (1, 1/2)
+    (2, 1/3)
+    (3, 1/4)
+    (4, 1/5)
+    (5, 1/6)
+};
+
+\end{axis}
+\end{tikzpicture}
+
+\par
+
+\begin{equation}
+\begin{split}
+    \lim_{n_\to\infty}\frac{n}{n+1} = \lim_{n_\to\infty}\frac{n(1)}{n(1+\frac{1}{n})} = \lim_{n_\to\infty}\frac{1}{1+\frac{1}{n}} = \lim_{n\to\infty}\frac{1}{1} = 1 \\
+\end{split}
+\end{equation}
+
+\par
+\par
+
+Задача 1.12:
+\begin{equation}
+\begin{split}
+    a_{n+1} = a_{n-1}+a_{n}, n \geq 2 \quad a_{1} = 1, a_{2} = 1
+\end{split}
+\end{equation}
+Решение:
+\begin{equation}
+\begin{split}
+    n = 1;\quad a_{1} = 1 \\
+    n = 2;\quad a_{2} = 2 \\
+    n = 3;\quad a_{3} = 3 \\
+    n = 4;\quad a_{4} = 5 \\
+    n = 5;\quad a_{5} = 8 \\
+\end{split}
+\end{equation}
+
+\par
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = { $n$ },
+    ylabel = { $a_n$ },
+    xmin = 1,
+    xmax = 5,
+    ymin = 0,
+    ymax = 8
+] 
+
+\addplot[
+    color=black,
+    mark=square
+] coordinates {
+    (1, 1)
+    (2, 2)
+    (3, 3)
+    (4, 5)
+    (5, 8)
+};
+
+\end{axis}
+\end{tikzpicture}
+
+\par
+
+    \item Да се опишат членовете на редицата
+\par
+\par
+
+Задача 2.5:
+\begin{equation}
+\begin{split}
+    -\frac{1}{2},\frac{2}{3},-\frac{3}{4},\frac{4}{5},...
+\end{split}
+\end{equation}
+Решение:
+\begin{equation}
+\begin{split}
+    n = \frac{n(-1)^n}{n+1}
+\end{split}
+\end{equation}
+
+\par
+
+    \item Да се пресметнат границите на редиците
+\par
+\par
+
+Задача 2.18:
+\begin{equation}
+\begin{split}
+    \lim_{x\to\infty}\frac{1-3^n}{5^n}
+\end{split}
+\end{equation}
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{x\to\infty}\frac{1-3^n}{5^n} = \lim_{x\to\infty}\frac{1}{5^n} - \lim_{x\to\infty}\frac{3^n}{5^n} = 0 - 0 = 0
+\end{split}
+\end{equation}
+
+\par
+
+Задача 2.30:
+\begin{equation}
+\begin{split}
+    \lim_{n\to\infty}\frac{n^2-1}{n^2+2}
+\end{split}
+\end{equation}
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{n\to\infty}\frac{n^2-1}{n^2+2} = \lim_{n\to\infty}\frac{n^2+2-3}{n^2+2} = \lim_{n\to\infty}\frac{n^2+2}{n^2+2}+\lim_{n\to\infty}\frac{-3}{n^2+2}
+\end{split}
+\end{equation}
+
+
+    \item Да се пресметнат границите L на дадените редици
+\par
+\par
+
+Задача 3.2:
+\begin{equation}
+\begin{split}
+    L = \lim_{x\to\infty}\frac{a^2_n+4a_n+4}{a^2_n-4}, \text{ако} \lim_{n\to\infty}a_n=-2 \text{ и } a_n \neq \pm 2
+\end{split}
+\end{equation}
+
+
+Решение: 
+При $a_n = -2$:
+
+\begin{equation}
+\begin{split}
+    L = \lim_{x\to\infty}\frac{(-2)^2+4(-2)+4}{(-2)^2-4} = \lim_{x\to\infty}\frac{0}{0} \\
+    L = \lim_{x\to\infty}\frac{(a+2)^2}{(a+2)(a-2)} = \lim_{x\to\infty}\frac{a+2}{a-2} = \lim_{x\to\infty}\frac{0}{-4} = 0
+\end{split}
+\end{equation}
+
+При $a_n \neq \pm 2$:
+
+\begin{equation}
+\begin{split}
+    L = \lim_{x\to\infty}\frac{a+2}{a-2} = \lim_{x\to\infty}\frac{}{} 
+\end{split}
+\end{equation}
+
+
+    \item Да се пресметнат функционалните стойности
+\par
+\par
+
+Задача 1.1: \\
+За функцията $f(x) = \sqrt{x}$ да се пресметнат следните стойности: 
+\\
+$f(4); f(2); f(5); f(0); f(144);$
+\par
+Решение:
+\begin{equation}
+\begin{split}
+    f(4) = \sqrt{4} = 2 \\
+    f(2) = \sqrt{2} \\
+    f(5) = \sqrt{5} \\
+    f(0) = \sqrt{0} \text{  Аргумента 0 не се намира в областта на аргументите} \\
+    f(144) = \sqrt{144} = 12 \\
+\end{split}
+\end{equation}
+
+
+    \item Да се определят дефиниционните области на дадените функции
+\par
+\par
+Задача 2.8: $y = \ln(x + 1)$
+\\
+Решение:
+\begin{equation}
+\begin{split}
+    y = \ln(x + 1) \\
+    x + 1: D_f \in [0, +\infty) \\
+    x \in [-1, +\infty)
+\end{split}
+\end{equation}
+\\
+Задача 2.13: $y = 2\arcsin{(x + \frac{\pi}{3})}$
+\\
+Решение:
+\begin{equation}
+\begin{split}
+    \arcsin{x} \quad x \in [-\frac{\pi}{2}, \frac{\pi}{2}] \\
+    -\frac{\pi}{2} \leq x + \frac{\pi}{3} \leq \frac{\pi}{2} \\
+    -\frac{\pi}{2} - \frac{\pi}{3} \leq x \leq \frac{\pi}{2} - \frac{\pi}{3} \\
+    -\frac{5\pi}{6} \leq x \leq \frac{\pi}{6} \\
+    D_f : x \in [-\frac{5\pi}{6}, \frac{\pi}{6}]
+\end{split}
+\end{equation}
+
+    \item Кое от множествата от точки F, G, S е графика на функция? И защо?
+\par
+\par
+F, защото за всяко едно y не отговаря повече от 1 стойност на x.  
+
+
+    \item Да се определи монотоността на функциите
+\par
+\par
+
+Задача 5.4: $у = 3x - 5$ за $x \in (-\infty;+\infty)$ \\
+
+Решение:
+Функцията е монотонно увеличаваща се в интервала $(-\infty;+\infty)$. Причината е защото винаги ще се спазва правилото за монотонно увеличаващи се функции (две точки $x_1$ и $x_2$ са със случайни стойности, спазено e $x_1 < x_2$ и $f(x_1) < f(x_2)$)
+
+
+    \item Да се изследват за четност и нечетност функциите
+\par
+\par
+
+Задача 6.1: $f(x)=x^4 - 2x^2$
+
+Решение:
+\begin{tikzpicture}
+    \begin{axis}[samples = 100, domain = -10:10]
+        \addplot[black, thick] {(x^4 - 2*x^2)};
+    \end{axis}
+\end{tikzpicture}
+
+Функцията е четна защото е симетрична относно оста Oy
+
+    \item Да се намерят обратните функции на дадените функции и да се скицират техните графики
+\par
+\par
+
+Задача 7.3 $y = x + 1$
+
+Решение:
+\begin{equation}
+\begin{split}
+    y = x + 1 \\
+    x = y - 1 \\
+    f^{-1}(x) = x - 1
+\end{split}
+\end{equation}
+
+\begin{tikzpicture}
+    \begin{axis}[samples = 100, domain = -10:10]
+        \addplot[red, thick] {(x + 1)};
+        \addplot[blue, thick] {(x - 1)};
+    \end{axis}
+\end{tikzpicture}
+
+    \item С дефиниция на Коши да се докаже, че:
+\par
+\par
+
+Задача 3: $\lim_{x\to0}(x^2 + 1) \neq 3$
+
+Решение:
+\begin{equation}
+\begin{split}
+    -\epsilon < x^2 + 1 - 3 < \epsilon \\
+    -\epsilon < x^2 - 2 < \epsilon \\
+    -\epsilon + 2 < x^2 < \epsilon + 2 \\
+    \sqrt{-\epsilon + 2} < x < \sqrt{\epsilon + 2} \\
+    \text{Нека } \delta = \text{max}\{\sqrt{-\epsilon + 2 - 0} \text{;} \sqrt{\epsilon + 2 + 0}\} \text{.Тогава } \delta \geq \sqrt{\epsilon + 2 + 0} \text{ и } \sqrt{-\epsilon + 2 - 0} \\
+    \text{ и следователно } 3 - \delta \leq 
+\end{split}
+\end{equation}
+
+    \item Нека $\alpha$ е точка на сгъстяване на $D_f$. Като се използва дефиницията на Хайне,да се пресметнат границите.
+\par
+\par
+
+Задача 4.1: $\lim_{x\to\alpha}x^2$
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{x\to\infty}x^2 = a^2
+\end{split}
+\end{equation}
+
+
+    \item Задача 5
+\par
+\par
+
+
+    \item Да се пресметнат границите
+\par
+\par
+
+Задача 7.3: $\lim_{x\to3}\frac{x^2 - 4}{x - 2}$
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{x\to3}\frac{x^2 - 4}{x - 2} =  \lim_{x\to3}\frac{3^2 - 4}{3 - 2} = \lim_{x\to3}(9-4) = 5
+\end{split}
+\end{equation}
+
+Задача 7.14: $\lim_{x\to2}(\frac{1}{2 - x} - \frac{2}{8 - x^3})$
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{x\to2}(\frac{1}{2 - x} - \frac{2}{8 - x^3}) = \\
+    \lim_{x\to2}(\frac{1}{2 - x} - \frac{2}{2^3 - x^3}) = \\
+    \lim_{x\to2}(\frac{1}{2 - x} - \frac{2}{2^3 - x^3}) = \\
+    \lim_{x\to2}(\frac{1}{2 - x} - \frac{2}{(2 - x)(x^2 + 2x + 4)}) = \\
+    \lim_{x\to2}(\frac{x^2 + 2x + 4 - 2}{(2 - x)(x^2 + 2x + 4)}) = \\
+    \lim_{x\to2}(\frac{x^2 + 2x + 2}{(2 - x)(x^2 + 2x + 4)}) = \\
+    \lim_{x\to2}(\frac{x^2 + 2x + 2}{x^2 + 2x + 4}) * \lim_{x\to2}(\frac{1}{x - 2}) = \\
+    \frac{5}{6} * \lim_{x\to2}(\frac{1}{x - 2}) = \\
+    \frac{5}{6} * \infty = \infty \\
+\end{split}
+\end{equation}
+
+Задача 7.25: $\lim_{x\to0}\frac{x}{\sin{3x}}$
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{x\to0}\frac{x}{3\sin{x}} = \lim_{x\to0}\frac{1}{(3x)`\cos{x}} = \\
+    \lim_{x\to0}\frac{1}{3\cos{3x}} = \lim_{x\to0}\frac{1}{3\cos{3 * 0}} = \frac{1}{3}
+\end{split}
+\end{equation}
+
+    \item Да се изследват за непрекъснатост дадените функции
+\par
+\par
+
+Задача 4.6: $f(x) = \ln{x + 1}$
+Решение:
+Функцията е непрекъсната в интервала $f : x \in (0; +\infty)$
+
+    \item Да се пресметнат първите производни на функциите
+\par
+\par
+
+Задача 1.10: $f(x) = x\arcsin{x}$
+\begin{equation}
+\begin{split}
+    f(x) = x\arcsin{x} \\
+    f(x)' = x'\arcsin{x} + x\arcsin{x}' = \\
+    f(x)' = \arcsin{x} + x\frac{1}{\sqrt{1-x^2}} = \\
+    f(x)' = \arcsin{x} = \frac{x}{\sqrt{1-x^2}}
+\end{split}
+\end{equation}
+
+Задача 1.20: $y = \frac{\sqrt{x} - 1}{\sqrt{x} + 1}$
+\begin{equation}
+\begin{split}
+    y = \frac{\sqrt{x} - 1}{\sqrt{x} + 1} \\
+    y' = \frac{
+        (\sqrt{x} - 1)'(\sqrt{x} + 1) - 
+        (\sqrt{x} - 1)(\sqrt{x} + 1)'
+    }
+    {
+        (\sqrt{x} + 1)^2
+    } \\
+    y' = \frac{ 
+        \frac{1}{2\sqrt{x}}(\sqrt{x} + 1) - 
+        (\sqrt{x} - 1)\frac{1}{2\sqrt{x}}
+    }
+    {
+        (\sqrt{x} + 1) ^ 2
+    } \\
+    y' = \frac{
+        -\frac{-1 + \sqrt{x}}{2\sqrt{x}} +
+        \frac{1 + \sqrt{x}}{2\sqrt{x}}
+    }
+    {
+        (\sqrt{x} + 1) ^ 2
+    } \\
+    y' = \frac{1}{(1 + \sqrt{x})^2*\sqrt{x}}
+\end{split}
+\end{equation}
+
+Задача 1.30: $y = cos^7{x}$
+Решение:
+\begin{equation}
+\begin{split}
+    y = \cos^7{x} \\
+    y = (\cos{x})^7 \\
+    y'= 7(\cos{x})^6*(-\sin{x})
+\end{split}
+\end{equation}
+
+Задача 1.40: $y = \frac{1 - \exp{x}}{1 + \exp{x}}$
+Решение:
+\begin{equation}
+\begin{split}
+    \text{Прекалено много сметки...}
+\end{split}
+\end{equation}
+
+Задача 1.50: $y = \exp{-x^2}$
+Решение:
+\begin{equation}
+\begin{split}
+    y = \exp{-x^2} \\
+    y' = \exp{-x^2}(-x^2)' \\
+    y' = \exp{-x^2}2x
+\end{split}
+\end{equation}
+
+Задача 1.60: $y = \log_5(x^2 - 4)$
+Решение:
+\begin{equation}
+\begin{split}
+    y = \log_5(x^2 - 4) \\
+    y = \frac{\log(x^2 - 4)}{\log{5}} \\
+    y' = \frac{\frac{(x^2 - 4)'}{x^2 - 4}}{\log(5)} \\
+    y' = \frac{2x}{(x^2 - 4)\log(5)}
+\end{split}
+\end{equation}
+
+Задача 1.70: $y = x.\ln{x^2 + 1}$
+Решение:
+\begin{equation}
+\begin{split}
+    y = x.\ln{x^2 + 1} \\
+    y' = (x'.\ln{x^2 + 1}) + x\frac{(x^2 + 1)'}{x^2 + 1} \\
+    y' = \ln{x^2 + 1} + 2x\frac{x}{x^2 + 1} \\
+    y' = \ln{x^2 + 1} + \frac{2x^2}{x^2 + 1}
+\end{split}
+\end{equation}
+
+Задача 1.80: $y = (4x^2 + 1)\arctan(2x) - 3\ln{x}$
+Решение:
+\begin{equation}
+\begin{split}
+    y = (4x^2 + 1)\arctan(2x) - 3\ln{x} \\
+\end{split}
+\end{equation}
+
+Задача 1.90: $h(x) = 2^{\cos^4{(\tg{(\ln{(4x)})})}}$
+Решение:
+\begin{equation}
+\begin{split}
+    h(x) = 2^{\cos^4{(\tg{(\ln{(4x)})})}} \\
+    h(x)' = \log{2}.(\cos^4{(\tg{(\ln{(4x)})})})' \\
+    h(x)' = \log{2}.3(\cos^3{(\tg{(\ln{(4x)})})}) \\
+\end{split}
+\end{equation}
+
+Задача 1.100: $y = (x^2 + 1)^(1/3)$
+Решение:
+\begin{equation}
+\begin{split}
+    \text{}
+\end{split}
+\end{equation}
+
+    \item Да се пресметнат диференциалите на функциите
+\par
+\par
+
+Задача 2.7: $f(x) = \cos^4{x}$
+Решение:
+\begin{equation}
+\begin{split}
+    f(x) = \cos^4{x} \\
+    f(x)' = ((\cos{x})^4)' \\
+    f(x)' = 4\cos{x}^3(\cos{x})' \\
+    f(x)' = 4\cos{3}^3(\sin{x})
+\end{split}
+\end{equation}
+
+    \item Да се пресметнат вторите производни на функциите
+\par
+\par
+
+Задача 3.11: $y = \ln{\frac{1 - x^2}{1 + x^2}}$
+Решение:
+\begin{equation}
+\begin{split}
+    y = \ln{\frac{1 - x^2}{1 + x^2}} \\
+    y' = \frac{(\frac{1 - x^2}{1 + x^2})'}{\frac{1 - x^2}{1 + x^2}} \\
+    y' = \frac
+    {
+        \frac
+        {
+            (1 - x^2)'.(1 + x^2) - (1 - x^2)(1 + x^2)'
+        }
+        {
+            (1 + x^2)^2
+        }
+    }
+    {
+        \frac{1 - x^2}{1 + x^2}
+    } \\
+    y' = \frac
+    {
+        \frac
+        {
+            (1 - x^2)'.(1 + x^2) - (1 - x^2)(1 + x^2)'
+        }
+        {
+            (1 + x^2)^2
+        }
+    }
+    {
+        \frac{1 - x^2}{1 + x^2}
+    } \\
+    \text{...} \\
+    y' = \frac{4x}{x^4 - 1} \\
+    (y')' = 4*\frac{(x)'(x^4 - 1) - x(x^4 - 1)'}{(x^4 - 1)^2} \\
+    (y')' = \frac{(x^4 - 1) - 4x^4}{(x^4 - 1)^2} \\ 
+    (y')' = 4*\frac{3x^4 - 1}{(x^4 - 1)^2}
+\end{split}
+\end{equation}
+
+    \item Да се пресметнат 3тите производни на функциите
+\par
+\par
+
+Задача 4.3: $y = x.\cos{x}$
+Решение:
+\begin{equation}
+\begin{split}
+    y = x.\cos{x} \\
+    y' = \cos{x} + x.(-\sin{x}) \\
+    (y')' = -\sin{x} + (-\sin{x} - x.\cos{x}) \\
+    (y')' = -2\sin{x} - x.\cos{x} \\
+    ((y')')' = -2\cos{x} - (\cos{x} - x.\sin{x}) \\
+    ((y')')' = -3\cos{x} + x.\sin{x}
+\end{split}
+\end{equation}
+
+    \item Да се намерят интервалите за монотонност и локалните екстремуми на функциите
+\par
+\par
+
+Задача 1.5: $y = x^2.e^{-x}$
+Решение:
+\begin{equation}
+\begin{split}
+    y = x^2.e^{-x} \\
+    y' = 2x.e^{-x} + x^2.(-e^{-x}) \\ 
+    \\
+    2x.e^{-x} + x^2.(-e^{-x}) = 0 \\
+    e^{-x}(2x -ca x^2) = 0 \\
+    \text{Корени: } \\
+    x_{1} = 0 \\
+    x_{2} = 2 \\
+    \text{Максимум: } \\
+    \max{x^2.e^{-x}} = 2^2 * \frac{1}{e^2} = 4 * \frac{1}{e^2} \\
+    \text{Минимум: } \\
+    \min{x^2.e^{-x}} = 0
+\end{split}
+\end{equation}
+
+
+    \item Да се намерят интервалите на изпъкналост и инфлексните точки на функциите
+\par
+\par
+
+Задача 2.3: $y = -\frac{1}{12}x^4 + \frac{3}{2}x^3 - 10x^2 + 5x - 1$
+Решение:
+\begin{equation}
+\begin{split}
+    y = -\frac{1}{12}x^4 + \frac{3}{2}x^3 - 10x^2 + 5x - 1 \\
+    y' = -(\frac{x^4}{12}) + \frac{3x^3}{2} - 10x^2 + 5x - 1 \\
+    y' = -(\frac{4x^3}{12}) + \frac{9x^2}{2} - 20x + 5 \\
+    (y')' = -(\frac{12x^2}{12}) + \frac{18x}{2} - 20 \\
+    (y')' = -x^2 + 9x - 20 \\
+    \\
+    -x^2 + 9x - 20 = 0 \\
+    x^2 - 9x + 20 = 0 \\
+    (x - 5)(x - 4) = 0 \\
+    x_{1} = 5 \\
+    x_{2} = 4 \\
+    -\frac{625}{12} + \frac{375}{2} - 250 + 25 - 1 = \frac{163}{12}
+\end{split}
+\end{equation}
+
+
+    \item Да се пресметнат границите, като се използва теоремата на Лопитал
+\par
+\par
+
+Задача 3.23: $\lim_{x\to\infty}\frac{7x^6 + 8x^2 - 7}{1 - 5x^5 - 7x^7}$
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{x\to\infty}\frac{7x^6 + 8x^2 - 7}{1 - 5x^5 - 7x^7} = \\
+    \lim_{x\to\infty}\frac{(7x^6 + 8x^2 - 7)'(1 - 5x^5 - 7x^7) - (7x^6 + 8x^2 - 7)(1 - 5x^5 - 7x^7)'}{(1 - 5x^5 - 7x^7) ^ 2} = \\
+    \lim_{x\to\infty}\frac{(42x^5 + 16x)(1 - 5x^5 - 7x^7) - (7x^6 + 8x^2 - 7)(-25x^4 - 49x^6)}{(1 - 5x^5 - 7x^7) ^ 2} = \\
+    \lim_{x\to\infty}\frac{(42x^5 + 16x)'(1 - 5x^5 - 7x^7) - (42x^5 + 16x)(1 - 5x^5 - 7x^7)' - ((7x^6 + 8x^2 - 7)'(-25x^4 - 49x^6) - (7x^6 + 8x^2 - 7)(-25x^4 - 49x^6)')}{(1 - 5x^5 - 7x^7) ^ 4} = 
+    \text{...}
+    = 0
+\end{split}
+\end{equation}
+
+    \item Да се намерят асимптотите на функциите
+\par
+\par
+
+Задача 4.6: $y = 2 - x.\ln{x}$
+Решение:
+\begin{equation}
+\begin{split}
+    \lim_{x\to\infty}(2-x.\ln{x}) = \lim_{x\to\infty}2 - \lim_{x\to\infty}x.\ln{x} = \\
+    2 + - (\infty) = -\infty \\
+    \text{Функцията няма асимптоти}
+\end{split}
+\end{equation}
+
+\begin{tikzpicture}
+    \begin{axis}[samples = 100]
+        \addplot[black, thick] {(2 - x*ln(x))};
+    \end{axis}
+\end{tikzpicture}
+
+
+    \item Да се изследват фунцкиите и да се построят техните графики
+\par
+\par
+
+Задача: 5.10: $y = x^4 - 6x^2$
+Решение:
+\begin{equation}
+\begin{split}
+    \text{1. Определяне на дефиниционна област} \\
+    D_f \in (-\infty; +\infty) \\
+    \\
+    \text{2. Изследване за периодичност и четност} \\
+    f(x) = x^4 - 6x^2 \\
+    f(-x) = (-x)^4 - 6(-x)^2 = x^4 - 6x^2 \\
+    \text{Функцията е четна} \\
+    \\
+    \text{3. Изследване за монотонност и екстремуми} \\
+    f(x) = x^4 - 6x^2 \\
+    f'(x) = 4x^3 - 12x \\
+    4x^3 - 12x = 0 \\
+    4x(x^2 - 3) = 0 \\
+    x_1 = 0 \\
+    x_2 = \sqrt{3} \\
+    x_3 = -\sqrt{3} \\
+    \text{В интервал } (-\infty, -\sqrt{3}) \text{ намаляваща} \\
+    \text{В интервал } (-\sqrt{3}, 0) \text{ растяща} \\
+    \text{В интервал } (0, \sqrt{3}) \text{ намаляваща} \\
+    \text{В интервал } (\sqrt{3}, \infty) \text{ растяща} \\
+    \text{Максимум = 0} \\
+    \text{Минимум = -9} \\
+    \\
+    \text{4. Изследване за изпъкналост и инфлексни точки} \\
+    f''(x) = 12x^2 - 12 \\
+    12x^2 - 12 = 0 \\
+    x^2 - 1 = 0 \\
+    x^2 = 1 \\
+    x_1 = \sqrt{1} \\
+    x_2 = -\sqrt{1} \\
+    \text{В интервал } (-\infty, -\sqrt{1}) \text{ изпъкнала надолу} \\
+    \text{В интервал } (-\sqrt{1}, \sqrt{1}) \text{ изпъкнала нагоре} \\
+    \text{В интервал } (\sqrt{1}, \infty) \text{ изпъкнала надолу}
+\end{split}
+\end{equation}
+
+\begin{tikzpicture}
+    \begin{axis}[samples = 100]
+        \addplot[black, thick] {(x^4 - 6*x^2)};
+    \end{axis}
+\end{tikzpicture}
+
+Задача 5.31: $y = \frac{x - 3}{x + 3}$
+Решение:
+\begin{equation}
+\begin{split}
+    \text{1. Определяне на дефиниционна област} \\
+    D_f \in (-\infty, -3) \cup (-3, \infty) \\
+    \\
+    \text{2. Изследване за периодичност и четност} \\
+    f(x) = \frac{x - 3}{x + 3} \\
+    f(-x) = \frac{-x + 3}{x + 3} \\
+    \text{Нито четна нито нечетна} \\
+    \\
+    \text{3. Изследване за монотонност и екстремуми} \\
+    f(x) = \frac{x - 3}{x + 3} \\
+    f'(x) = \frac{(x - 3)'(x + 3) - (x - 3)(x + 3)'}{(x + 3)^2} \\
+    f'(x) = \frac{x + 3 - x + 3}{(x + 3)^2} \\
+    f'(x) = \frac{6}{(x + 3)^2} \\
+    \frac{6}{(x + 3)^2} = 0 \\
+    \frac{1}{(x + 3)^2} = 0 \\
+    \text{Няма реални корени} \\
+    \frac{1}{(0 + 3)^2} > 0
+    \text{. Функцията е монотонно растяща}
+    \\
+    \text{4. Изследване за изпъкналост и инфлексни точки} \\
+    f''(x) = 6\frac{1}{(x + 3)^2} \\
+    f''(x) = 6\frac{-1.2(x + 3)(x + 3)'}{(x + 3)^4} \\
+    f''(x) = 6\frac{-2(x + 3)}{(x + 3)^4} \\
+    f''(x) = \frac{-12(x + 3)}{(x + 3)^4} = \frac{-12}{(x + 3)^3} \\
+    \frac{-12}{(x + 3)^3} = 0 \\
+    \text{Няма реални корени} \\
+    \lim_{x\to-3}\frac{x - 3}{x + 3} = \\
+    \lim_{x\to-3}(x - 3)\lim_{x\to-3}\frac{1}{x + 3} = \\
+    -6.\infty = \infty \\
+    x = -3 \text{ е вертикална асимптота} \\
+    \lim_{x\to\infty}\frac{x - 3}{x + 3} = \frac{\infty}{\infty} \\
+    \lim_{x\to\infty}\frac{x(1 - \frac{3}{x})}{x(1 + \frac{3}{x})} = \\
+    \lim_{x\to\infty}\frac{1 - \frac{3}{x}}{1 + \frac{3}{x}} = \\
+    \frac{1 - 0}{1 + 0} = 1 \\
+    y = 1 \text{ е хоризонталната асимптота}
+\end{split}
+\end{equation}
+
+\begin{tikzpicture}
+    \begin{axis}[samples = 100, ymin = -10, ymax = 10, domain = -20:20]
+        \addplot[black, thick] {((x - 3) / (x + 3))};
+    \end{axis}
+\end{tikzpicture}
+
+
+    \item Да се пресметнат интегралите (метод на непосредственото интегриране)
+\par
+\par
+
+Задача 1.16: $\int(3^x - 5^x)^2 dx$
+Решение:
+\begin{equation}
+\begin{split}
+    \int(3^x - 5^x)^2 dx = \\
+    \int(9^x - 2.3^x.5^x + 25^x) dx = \\
+    \int(9^x) dx - \int(2.15^x) dx + \int(25^x) dx = \\
+    \frac{9^x}{\ln{9}} - 2\frac{15^x}{\ln{15}} + \frac{25^x}{\ln{25}} + C = \\
+    \frac{9^x}{2\ln{3}} - 2\frac{15^x}{\ln{15}} + \frac{25^x}{2\ln{5}} + C
+\end{split}
+\end{equation}
+
+
+    \item Да се пресметнат интегралите (метод на константа под знака на диференциала)
+\par
+\par
+
+Задача 2.11: $\int\frac{x.e^{3x} + 1}{x} dx$
+Решение:
+\begin{equation}
+\begin{split}
+    \int\frac{x.e^{3x} + 1}{x}dx = \\
+    \int\frac{x.e^{3x}}{x}dx + \int\frac{1}{x}dx = \\
+    \int e^{3x}dx + \ln{|x|} + C = \\
+    \frac{1}{3}\int e^{3x}d3x + \ln{|x|} + C = \\
+    \frac{1}{3}e^{3x} + \ln{|x|} + C
+\end{split}
+\end{equation}
+
+
+    \item Да се пресметнат интегралите (метод на константа под знака на диференциала)
+\par
+\par
+
+Задача 3.1: $\int\frac{x}{x^2 + 1}dx$
+Решение:
+\begin{equation}
+\begin{split}
+    \int\frac{x}{x^2 + 1}dx = \\
+    \int\frac{1}{x^2 + 1}.xdx = \\
+    \int\frac{1}{x^2 + 1}d\frac{x^2}{2} = \\
+    \frac{1}{2}\int\frac{1}{x^2 + 1}dx^2 = \\
+    \frac{1}{2}\int\frac{1}{x^2 + 1}dx^2 + 1 = \\
+    \frac{1}{2}\ln{|x^2 + 1|} + C
+\end{split}
+\end{equation}
+
+
+    \item Да се пресметнат интегралите (метод интегриране по части)
+\par
+\par
+
+Задача 4.2: $\int x.\cos{x}.dx$
+Решение:
+\begin{equation}
+\begin{split}
+    \int x.\cos{x}.dx = \\
+    \int x d\sin{x} = \\
+    \int x d\sin{x} = \\
+    x.\sin{x} - \int \sin{x}dx = \\
+    x.\sin{x} + \cos{x} 
+\end{split}
+\end{equation}
+
+    \item Да се пресметнат интегралите (субституции)
+\par
+\par
+
+Задача 5.6: $\int \frac{dx}{\sin{x}}dx$
+Решение:
+\begin{equation}
+\begin{split}
+    \int \frac{dx}{\sin{x}}dx = \\
+    \int \sec{x}dx = 
+\end{split}
+\end{equation}
+
+    \item Да се пресметнат интегралите (разлагане в сума от елементарни дроби)
+\par
+\par
+
+Задача 6.11: $\int \frac{dx}{x^3 - x^2 - 4x + 4}$
+Решение:
+\begin{equation}
+\begin{split}
+    \int \frac{dx}{x^3 - x^2 - 4x + 4} = \\
+    \int \frac{dx}{x^2(x - 1) - 4(x - 1)} = \\
+    \int \frac{dx}{(x - 1)(x^2 - 4)} = \\
+    \int \frac{dx}{(x - 2)(x + 2)(x - 1)} \\
+    \\
+    \frac{1}{(x - 2)(x + 2)(x - 1))} = \frac{A}{x - 2} + \frac{B}{x + 2} + \frac{C}{x - 1} \\
+    1 = A(x^2 + x - 2) + (x - 2)(B(x + 2) + C(x -1)) \\
+    1 = - 2A - 4B + 3B + (A + B + C)x^2 + (A - 3C)x \\
+    -2A -4B +3B = 1 \\
+    A + B + C = 0 \\
+    A + 0B - 3C = 0 \\
+    \\
+    \begin{bmatrix}
+        -2 & -4 & 2 & | 1 \\
+        1 & 0 & -3 & | 0 \\
+        1 & 1 & 1 & | 0
+    \end{bmatrix}
+    \\
+    \\
+    \dots
+    \\
+    \\
+    \begin{bmatrix}
+        1 & 0 & 0 & | \frac{1}{4} \\
+        0 & 1 & 0 & | -\frac{1}{3} \\
+        0 & 0 & 1 & | \frac{1}{12}
+    \end{bmatrix} \\
+    \\
+    \frac{1}{x^3 - x^2 - 4x + 4} = \frac{1}{4(x - 2)} + \frac{1}{12(x + 2)} - \frac{1}{3(x - 1)} \\
+    \\
+    \int \frac{dx}{(x - 2)(x + 2)(x - 1)} = \\
+    \int (\frac{1}{4(x - 2)} + \frac{1}{12(x + 2)} - \frac{1}{3(x - 1)}) dx = \\
+    \int \frac{1}{4(x - 2)}dx + \int \frac{1}{12(x + 2)}dx - \int \frac{1}{3(x - 1)})dx = \\
+    \frac{\log{x - 2}}{4} + \frac{\log{x + 2}}{12} - \frac{\log{x - 1}}{3} + C
+\end{split}
+\end{equation}
+
+Задача 6.12: $\int \frac{1}{(x^2 - 3)(x^2 + 2)dx}$
+\begin{equation}
+\begin{split}
+    \int \frac{1}{(x^2 - 3)(x^2 + 2)}dx = \\
+    \int \frac{A}{(x - \sqrt{3})} - \frac{B}{x + \sqrt{3}} + \frac{Cx + D}{x^2 + 2} = \\
+    1 = A(x + \sqrt{3})(x^2 + 2) + B(x - \sqrt{3})(x^2 + 2) + (Cx + D)(x - \sqrt{3})(x + \sqrt{3}) \\
+    \text{...} \\
+    A + B + C = 0 \\
+    \sqrt{3}A - \sqrt{3}B + D = 0 \\
+    2A + 2B = 0 \\
+    2\sqrt{3}A - 2\sqrt{3}B - 3d = 1 \\
+    \text{...} \\
+    A = \frac{1}{10\sqrt{3}} \\
+    B = -\frac{1}{10\sqrt{3}} \\
+    C = 0 \\
+    D = -\frac{1}{5} 
+\end{split}
+\end{equation}
+
+    \item Пресметнат определените интеграли
+\par
+\par
+
+Задача 7.4: $\int^{1}_0\frac{dx}{\sqrt{4 - x^2}}$
+\begin{equation}
+\begin{split}
+    \int^{1}_0\frac{dx}{\sqrt{4 - x^2}} = \\
+    \frac{1}{2} - \frac{0}{2} + C = \\
+    \frac{1}{2} + C
+\end{split}
+\end{equation}
+
+Задача 7.15: $\int_{0}^{\frac{\pi}{2}}\frac{\sin{x}}{4 + \cos^2{x}}dx$
+\begin{equation}
+\begin{split}
+    \int_{0}^{\frac{\pi}{2}}\frac{\sin{x}}{4 + \cos^2{x}}dx = \\
+    \int_{0}^{\frac{\pi}{2}}\frac{1}{4 + \cos^2{x}}d-\cos{x} = \\
+    -\int_{0}^{\frac{\pi}{2}}\frac{1}{4 + \cos^2{x}}d\cos{x} = \\
+    \frac{1}{2}\arctan\frac{\cos{x}}{2}|_{0}^{\frac{\pi}{2}} = \\
+    \frac{1}{2}\arctan{\cos{\frac{\pi}{2}}} - \frac{1}{2}\arctan\frac{\cos{0}}{2} + C = \\
+    \frac{1}{2}\arctan\frac{1}{2} + \frac{1}{2}\arctan{\frac{1}{2}} = \arctan\frac{1}{2}
+\end{split}
+\end{equation}
+
+Задача 7.21: $\int_1^{e} x.\ln{x}dx$
+\begin{equation}
+\begin{split}
+    \int_1^{e} x.\ln{x}dx = \\
+    \int_1^{e} \ln{x}d\frac{x^3}{2} = \\
+    \ln{x}.\frac{x^3}{2} - \int_1^{e} \frac{x^3}{2}d\ln{x} = \\
+    \ln{x}.\frac{x^3}{2} - \int_1^{e} \frac{x^2}{2}dx = \\
+    \ln{x}.\frac{x^3}{2} - \frac{1}{2}\int_1^{e} x^2dx = \\
+    \ln{x}.\frac{x^3}{2} - \frac{1}{2}(\frac{e^3}{3} - \frac{1^3}{3}) = 
+\end{split}
+\end{equation}
+
+\end{enumerate}
+\end{document}
